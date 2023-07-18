@@ -1,0 +1,148 @@
+.btn-google {
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #fff;
+  }
+  
+  .btn-google:hover {
+    color: #fff;
+    background-color: #e12717;
+    border-color: #e6e6e6;
+  }
+  
+  .btn-google:focus, .btn-google.focus {
+    color: #fff;
+    background-color: #e12717;
+    border-color: #e6e6e6;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-google.disabled, .btn-google:disabled {
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #fff;
+  }
+  
+  .btn-google:not(:disabled):not(.disabled):active, .btn-google:not(:disabled):not(.disabled).active,
+  .show > .btn-google.dropdown-toggle {
+    color: #fff;
+    background-color: #d62516;
+    border-color: #dfdfdf;
+  }
+  
+  .btn-google:not(:disabled):not(.disabled):active:focus, .btn-google:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-google.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: #fff;
+  }
+  
+  .btn-facebook:hover {
+    color: #fff;
+    background-color: #30497c;
+    border-color: #e6e6e6;
+  }
+  
+  .btn-facebook:focus, .btn-facebook.focus {
+    color: #fff;
+    background-color: #30497c;
+    border-color: #e6e6e6;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-facebook.disabled, .btn-facebook:disabled {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: #fff;
+  }
+  
+  .btn-facebook:not(:disabled):not(.disabled):active, .btn-facebook:not(:disabled):not(.disabled).active,
+  .show > .btn-facebook.dropdown-toggle {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: #dfdfdf;
+  }
+  
+  .btn-facebook:not(:disabled):not(.disabled):active:focus, .btn-facebook:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-facebook.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+
+
+  .btn-microsoft {
+    color: #3b3b3b;
+    background-color: #ececec;
+    border-color: #adadad;
+  }
+  
+  .btn-microsoft:hover {
+    color: #3b3b3b;
+    background-color: #c9c9c9;
+    border-color: #adadad;
+  }
+  
+  .btn-microsoft:focus, .btn-microsoft.focus {
+    color: #fff;
+    background-color: #e12717;
+    border-color: #e6e6e6;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-microsoft.disabled, .btn-microsoft:disabled {
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #fff;
+  }
+  
+  .btn-microsoft:not(:disabled):not(.disabled):active, .btn-microsoft:not(:disabled):not(.disabled).active,
+  .show > .btn-microsoft.dropdown-toggle {
+    color: #fff;
+    background-color: #d62516;
+    border-color: #dfdfdf;
+  }
+  
+  .btn-microsoft:not(:disabled):not(.disabled):active:focus, .btn-microsoft:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-microsoft.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-github {
+    color: #fff;
+    background-color: #363636;
+    border-color: #fff;
+  }
+  
+  .btn-github:hover {
+    color: #fff;
+    background-color: #202020;
+    border-color: #e6e6e6;
+  }
+  
+  .btn-facebook:focus, .btn-facebook.focus {
+    color: #fff;
+    background-color: #30497c;
+    border-color: #e6e6e6;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-facebook.disabled, .btn-facebook:disabled {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: #fff;
+  }
+  
+  .btn-facebook:not(:disabled):not(.disabled):active, .btn-facebook:not(:disabled):not(.disabled).active,
+  .show > .btn-facebook.dropdown-toggle {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: #dfdfdf;
+  }
+  
+  .btn-facebook:not(:disabled):not(.disabled):active:focus, .btn-facebook:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-facebook.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
