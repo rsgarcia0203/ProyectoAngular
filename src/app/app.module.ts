@@ -6,13 +6,14 @@ import axios from 'axios';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { CardsComponent } from './cards/cards.component';
-import { BarColorsComponent } from './bar-colors/bar-colors.component';
-import { InformationComponent } from './components/information/information.component';
-import { BarnavComponent } from './barnav/barnav.component';
-import { GraphicComponent } from './components/graphic/graphic.component';
 
+/* My components */
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { BarColorsComponent } from './components/bar-colors/bar-colors.component';
+import { InformationComponent } from './components/information/information.component';
+import { BarnavComponent } from './components/barnav/barnav.component';
+import { GraphicComponent } from './components/graphic/graphic.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
