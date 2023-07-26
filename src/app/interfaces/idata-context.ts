@@ -1,4 +1,4 @@
-export interface IDataContext {
+export interface DataContext {
     X1: number
     X2: number
     X3: number
