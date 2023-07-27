@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import axios from 'axios';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import {Axios} from 'axios';
+
+
 
 /* Angular Fire Modules */
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -22,10 +24,12 @@ import { BarColorsComponent } from './components/bar-colors/bar-colors.component
 import { InformationComponent } from './components/information/information.component';
 import { BarnavComponent } from './components/barnav/barnav.component';
 import { GraphicComponent } from './components/graphic/graphic.component';
-import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +42,14 @@ import { FormsModule } from '@angular/forms';
     InformationComponent,
     BarnavComponent,
     LoginComponent,
-    GraphicComponent
+    GraphicComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([], { scrollPositionRestoration: 'top'}),
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
