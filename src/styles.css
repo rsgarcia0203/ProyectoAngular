@@ -9733,8 +9733,9 @@ a.text-dark:hover, a.text-dark:focus {
   @page {
     size: a3;
   }
+  
   body {
-    min-width: 992px !important;
+    min-width: 100vh !important;
   }
   .container {
     min-width: 992px !important;
@@ -9777,7 +9778,7 @@ html {
 }
 
 body {
-  height: 100%;
+  height: 100vh;
 }
 
 a:focus {
