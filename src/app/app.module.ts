@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from  '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {Axios} from 'axios';
-
-
+/* Librerias adicionales */
+import { ToastrModule } from 'ngx-toastr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 /* Angular Fire Modules */
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -25,8 +28,6 @@ import { InformationComponent } from './components/information/information.compo
 import { BarnavComponent } from './components/barnav/barnav.component';
 import { GraphicComponent } from './components/graphic/graphic.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -48,11 +49,14 @@ import { LoginComponent } from './pages/login/login.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot([], { scrollPositionRestoration: 'top'}),
     ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    HttpClientModule,  
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
