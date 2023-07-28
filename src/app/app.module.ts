@@ -31,6 +31,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ChartComponent } from './components/charts/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +46,17 @@ import { LoginComponent } from './pages/login/login.component';
     LoginComponent,
     GraphicComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     RouterModule.forRoot([], { scrollPositionRestoration: 'top'}),
     ReactiveFormsModule,
     AppRoutingModule,
