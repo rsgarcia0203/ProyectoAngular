@@ -1,7 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-// Importación de Axios
-import { Axios } from 'axios';
 import { DataContext } from 'src/app/interfaces/idata-context';
 
 @Injectable({
@@ -11,16 +11,10 @@ export class DataService {
   private URL: string =
     'https://angulardawm-default-rtdb.firebaseio.com/data_context.json';
 
-  constructor(private axios: Axios) {}
+  constructor(private http: HttpClient) {}
 
   //Método con la petición HTTP
-  public async getData(): Promise<DataContext[]> {
-    return this.axios
-      .get(this.URL)
-      .then((response) => response.data as DataContext[])
-      .catch((error) => {
-        console.log(error);
-        return [];
-      });
+  public getData(): Observable<Object> {
+    return this.http.get(this.URL)
   }
 }

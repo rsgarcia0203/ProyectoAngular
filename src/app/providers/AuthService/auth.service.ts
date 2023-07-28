@@ -1,4 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Observable, map, Subscription, EMPTY } from 'rxjs';
+import { Injectable, OnDestroy, OnInit, Optional } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import {
   Auth,
@@ -7,39 +10,91 @@ import {
   signInWithPopup,
   GithubAuthProvider,
   signInWithEmailAndPassword,
-  signOut
+  FacebookAuthProvider,
+  signOut,
+  authState,
 } from '@angular/fire/auth';
-import { Observable, from } from 'rxjs';
+import { traceUntilFirst } from '@angular/fire/performance';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  public user$: User | null;
+export class AuthService implements OnInit, OnDestroy {
+  private readonly userDisposable: Subscription | undefined;
+  public readonly user: Observable<User | null> = EMPTY;
 
-  constructor(private auth: Auth) {
-    this.user$ = auth.currentUser; 
+  constructor(
+    @Optional() private auth: Auth,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
+    if (auth) {
+      this.user = authState(this.auth);
+      this.userDisposable = authState(this.auth)
+        .pipe(
+          traceUntilFirst('auth'),
+          map((u) => !!u)
+        )
+        .subscribe((isLoggedIn) => {
+          console.log(isLoggedIn);
+          if (isLoggedIn) {
+            this.router.navigate(['/home']);
+          } else {
+            this.router.navigate(['/account/login']);
+          }
+        });
+    }
   }
 
-  loginWithMail(mail:string, password:string) {
-    return signInWithEmailAndPassword(this.auth, mail, password);
+  public async loginWithMail(mail: string, password: string) {
+    try {
+      await signInWithEmailAndPassword(this.auth, mail, password);
+    } catch (error) {
+      this.toastr.error('Mensaje de error', 'Título del error');
+    }
   }
 
-  loginWithGoogle() {
+  public async loginWithGoogle() {
     const provider = new GoogleAuthProvider();
-    return from(signInWithPopup(this.auth, provider));
+    try {
+      await signInWithPopup(this.auth, provider);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  loginWithGithub() {
+  public async loginWithGithub(): Promise<void> {
     const provider = new GithubAuthProvider();
-    return from(signInWithPopup(this.auth, provider));
+    try {
+      await signInWithPopup(this.auth, provider);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  logout() {
-    this.auth.signOut();
+  public async loginWithFacebook(): Promise<void> {
+    const provider = new FacebookAuthProvider();
+    try {
+      await signInWithPopup(this.auth, provider);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  get currentUser(): User | null {
-    return this.user$;
+  public async logout() {
+    this.router.navigate(['/account/login']);
+    return await signOut(this.auth);
+  }
+
+  get userValue() {
+    return this.auth.currentUser?.uid;
+  }
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    if (this.userDisposable) {
+      this.userDisposable.unsubscribe();
+    }
   }
 }
