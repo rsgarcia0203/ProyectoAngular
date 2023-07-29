@@ -13,13 +13,15 @@ export class LineChartComponent implements OnInit, AfterViewInit{
   @Input() chartLabels!: string[];
   @Input() chartData!: number[];
   @Input() chartName!: string;
+  @Input() prefix!: string;
+
 
   protected id:string = '';
 
   constructor (private elementRef: ElementRef) { this.id = this.elementRef.nativeElement.id+"_chart" }
   
   ngOnInit() {
-    this.id = this.elementRef.nativeElement.id + "_chart";
+    this.id = this.elementRef.nativeElement.id + "_" + this.prefix + "_chart";
   }
 
   ngAfterViewInit() {
@@ -28,7 +30,7 @@ export class LineChartComponent implements OnInit, AfterViewInit{
       data: {
         labels: this.chartLabels,
         datasets: [{
-          label: 'Datos del gráfico',
+          label: 'Datos de la compañía',
           data: this.chartData, // Se utilizan los datos pasados como input al componente
           borderColor: 'blue',
           fill: false

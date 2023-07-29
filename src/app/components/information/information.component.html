@@ -1,14 +1,31 @@
-<div class="col-lg-6 mb-4">
-    <div *ngIf="data">
-        <div *ngFor="let company of data">
+<div *ngIf="data">
+    <div *ngFor="let company of data" class="row">
+        <!-- Gr&aacute;fico de amortizaci&oacute;n y depreciaci&oacute;n -->
+        <div class="col-lg-6 mb-4">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary"> Gr&aacute;fico de amortizaci&oacute;n y depreciaci&oacute;n (Compa&ntilde;&iacute;a: {{ company['name'] }})</h6>
+                    <h4 class="m-0 font-weight-bold text-primary"> Gr&aacute;fico de Amortizaci&oacute;n y Depreciaci&oacute;n (Compa&ntilde;&iacute;a: {{ company['name'] }})</h4>
                 </div>
                 <div class="card-body">
                     <app-line-chart
-                        [id]="company['name']"
-                        [chartData]="company['data']"
+                        [id]="company['name'] + '_X3'"
+                        [prefix]="'X3'"
+                        [chartData]="company['X3_data']"
+                        [chartLabels]="company['years']"                        
+                    ></app-line-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h4 class="m-0 font-weight-bold text-primary"> Gr&aacute;fico de Inventario Neto (Compa&ntilde;&iacute;a: {{ company['name'] }})</h4>
+                </div>
+                <div class="card-body">
+                    <app-line-chart
+                        [id]="company['name'] + '_X6'"
+                        [prefix]="'X6'"
+                        [chartData]="company['X6_data']"
                         [chartLabels]="company['years']"                        
                     ></app-line-chart>
                 </div>
@@ -16,9 +33,11 @@
         </div>
     </div>
 </div>
-<div *ngIf="data.length === 0" class="col-lg-6 mb-4">
-    <div class="d-flex justify-content-center">
-        <strong>{{ msg }}...</strong>
-        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-      </div>
+<div *ngIf="data.length === 0" class="row justify-content-center mt-4">
+    <div class="col-2 col-lg-2">
+        <div class="d-flex justify-content-between">
+            <strong>{{ msg }}...</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div>
+    </div>
 </div>
