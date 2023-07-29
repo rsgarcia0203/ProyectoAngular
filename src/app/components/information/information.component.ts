@@ -17,12 +17,13 @@ export class InformationComponent {
   
   ngOnInit():void {
     this._ds.getData()
-        .subscribe(async (response) => {
+        .subscribe((response) => {
+          this.msg = 'Procesando datos';
           let data_array = (response as DataContext[]);
           
-          let companies = [...new Set(data_array.flatMap(obj => {
-            return obj.company_name;
-          }))]
+          let companies = [...new Set(
+                                  data_array.flatMap(obj => { return obj.company_name; })
+                          )]
           
           let nueva_informacion = [];
           for (let i = 0; i < companies.length; i++) {
@@ -31,13 +32,11 @@ export class InformationComponent {
                                       .map(({ year, X3, X6 }) => ({ year, X3, X6 }));
               let arr_datos_X3 = datosCompania.map(obj => { return obj.X3 });
               let arr_datos_X6 = datosCompania.map(obj => { return obj.X6 });
-              console.log(arr_datos_X6)
               let arr_anios = datosCompania.map(obj => { return obj.year.toString() });
               nueva_informacion.push({name: companies[i], X3_data: arr_datos_X3, X6_data: arr_datos_X6, years: arr_anios});
           }
           
           this.data = nueva_informacion;
-          this.msg = 'Procesando datos';
         })
   }
 }
