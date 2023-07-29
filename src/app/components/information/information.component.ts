@@ -10,15 +10,14 @@ import { DataService } from 'src/app/providers/DataService/data.service';
 export class InformationComponent {
   //public data: DataContext[] = new Array<DataContext>();
   public msg:string = 'Cargando datos';
-  public i:number = 1;
-  data:Array<{name:string, data:number[], years:string[]}> = [];
+  public data:Array<{name:string, data:number[], years:string[]}> = [];
+
   constructor(private _ds:DataService) { }
   
   ngOnInit():void {
     this._ds.getData()
         .subscribe(async (response) => {
           let data_array = (response as DataContext[]);
-          this.msg = 'Procesando datos';
           
           let companies = [...new Set(data_array.flatMap(obj => {
             return obj.company_name;
@@ -35,10 +34,7 @@ export class InformationComponent {
           }
           
           this.data = nueva_informacion;
+          this.msg = 'Procesando datos';
         })
-  }
-
-  public next():void {
-    this.i ++;
   }
 }

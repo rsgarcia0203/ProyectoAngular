@@ -1,27 +1,16 @@
 <div class="col-lg-6 mb-4">
     <div *ngIf="data">
         <div *ngFor="let company of data">
-            <app-line-chart
-                [chartData]="company['data']"
-                [chartLabels]="company['years']"
-                [chartId]="company['name']"
-                [chartSecuence]="i"
-                        
-                ></app-line-chart>
-                {{next()}}
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ company['name'] }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"> Gr&aacute;fico de amortizaci&oacute;n y depreciaci&oacute;n (Compa&ntilde;&iacute;a: {{ company['name'] }})</h6>
                 </div>
                 <div class="card-body">
-                    {{ company['data'] }}
-                    
-                    <!-- <app-chart 
-                        [chartType]="'pie'"
+                    <app-line-chart
+                        [id]="company['name']"
                         [chartData]="company['data']"
-                    >
-                    </app-chart> -->
-                    {{ company['years'] }}
+                        [chartLabels]="company['years']"                        
+                    ></app-line-chart>
                 </div>
             </div>
         </div>
