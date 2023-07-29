@@ -1,6 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
-@import url("assets/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css");
-@import url("assets/startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css");
 /* You can add global styles to this file, and also import other style files */
 :root {
   --blue: #4e73df;
@@ -11200,3 +11198,6 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

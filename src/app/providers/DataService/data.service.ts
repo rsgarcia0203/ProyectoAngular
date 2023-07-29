@@ -9,7 +9,7 @@ import { DataContext } from 'src/app/interfaces/idata-context';
 })
 export class DataService {
   private URL: string =
-    'https://angulardawm-default-rtdb.firebaseio.com/data_context.json';
+    'https://angulardawm-default-rtdb.firebaseio.com/data.json';
 
   constructor(private http: HttpClient) {}
 
