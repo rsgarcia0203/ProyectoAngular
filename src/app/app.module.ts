@@ -30,6 +30,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ChartComponent } from './components/chart/chart.component';
     GraphicComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ChartComponent
+    ChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,

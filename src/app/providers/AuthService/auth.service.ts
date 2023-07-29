@@ -36,7 +36,6 @@ export class AuthService implements OnInit, OnDestroy {
           map((u) => !!u)
         )
         .subscribe((isLoggedIn) => {
-          console.log(isLoggedIn);
           if (isLoggedIn) {
             this.router.navigate(['/home']);
           } else {
