@@ -25,7 +25,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { InformationComponent } from './components/information/information.component';
 import { BarnavComponent } from './components/barnav/barnav.component';
-import { GraphicComponent } from './components/graphic/graphic.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -41,7 +40,6 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
     InformationComponent,
     BarnavComponent,
     LoginComponent,
-    GraphicComponent,
     PageNotFoundComponent,
     HomeComponent,
     ChartComponent,
