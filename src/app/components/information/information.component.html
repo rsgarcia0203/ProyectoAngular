@@ -1,55 +1,35 @@
 <div class="col-lg-6 mb-4">
-
-    <!-- Illustrations -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-        </div>
-        <div class="card-body">
-            <div class="text-center">
-                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                    src="" alt="...">
-            </div>
-            <p>Add some quality, svg illustrations to your project courtesy of <a
-                    target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                constantly updated collection of beautiful svg images that you can use
-                completely free and without attribution!</p>
-            <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                unDraw &rarr;</a>
-        </div>
-    </div>
-
-    <!-- Approach -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-        </div>
-        <div class="card-body">
-            <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                CSS bloat and poor page performance. Custom CSS classes are used to create
-                custom components and custom utility classes.</p>
-            <p class="mb-0">Before working with this theme, you should become familiar with the
-                Bootstrap framework, especially the utility classes.</p>
-        </div>
-    </div>
-
     <div *ngIf="data">
-        <div *ngFor="let datum of data">
+        <div *ngFor="let company of data">
+            <app-line-chart
+                [chartData]="company['data']"
+                [chartLabels]="company['years']"
+                [chartId]="company['name']"
+                [chartSecuence]="i"
+                        
+                ></app-line-chart>
+                {{next()}}
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ datum }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ company['name'] }}</h6>
                 </div>
                 <div class="card-body">
-                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                        custom components and custom utility classes.</p>
-                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                        Bootstrap framework, especially the utility classes.</p>
+                    {{ company['data'] }}
+                    
+                    <!-- <app-chart 
+                        [chartType]="'pie'"
+                        [chartData]="company['data']"
+                    >
+                    </app-chart> -->
+                    {{ company['years'] }}
                 </div>
             </div>
         </div>
     </div>
-    <div *ngIf="data.length === 0">
-        <p>Esperando a que se completen los datos...</p>
-    </div>
+</div>
+<div *ngIf="data.length === 0" class="col-lg-6 mb-4">
+    <div class="d-flex justify-content-center">
+        <strong>{{ msg }}...</strong>
+        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+      </div>
 </div>
