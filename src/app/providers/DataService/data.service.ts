@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { DataContext } from 'src/app/interfaces/idata-context';
-
 @Injectable({
   providedIn: 'root',
 })

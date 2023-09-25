@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-not-found.component.css']
 })
 export class PageNotFoundComponent {
-
+  constructor() {
+    window.location.replace("/404.html");
+  }
 }
